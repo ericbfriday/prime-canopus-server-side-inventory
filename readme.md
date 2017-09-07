@@ -16,12 +16,12 @@ We will create an "inventory" router for these. We will also create an "index" r
 - [X] spin up Node/Express server
 - [X] send back index.html via app.js with sourced js files
 - [ ] refactor app.js to use an 'index.js' Express router module for index.html
-- [ ] setup basic interface
-- [ ] test JQ interactive elements
+- [X] setup basic interface
+- [X] test JQ interactive elements
 - [ ] setup 'inventory.js' with temp inventory array and GET route to return said array
-- [ ] GET AJAX call to inventory returns array
-- [ ] POST AJAX call to inventory adds new item to array on the server
-- [ ] display inventory on DOM
+- [X] GET AJAX call to inventory returns array
+- [X] POST AJAX call to inventory adds new item to array on the server
+- [X] display inventory on DOM
 - [ ] POST AJAX call to check if any objects' names contain the given search string & return appropriate array
 
 ## Take it Further
