@@ -13,8 +13,8 @@ We will create an "inventory" router for these. We will also create an "index" r
 
 ## Tech: jQuery Ajax Node Express
 ## Steps:
-- [ ] spin up Node/Express server
-- [ ] send back index.html via app.js with sourced js files
+- [X] spin up Node/Express server
+- [X] send back index.html via app.js with sourced js files
 - [ ] refactor app.js to use an 'index.js' Express router module for index.html
 - [ ] setup basic interface
 - [ ] test JQ interactive elements
