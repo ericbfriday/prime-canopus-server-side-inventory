@@ -1,0 +1,16 @@
+{
+  "name": "server-side-inventory",
+  "version": "1.0.0",
+  "description": "In this project we'll create a project that tracks an inventory on the server. Also, we'll explore Express routing through custom modules.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
