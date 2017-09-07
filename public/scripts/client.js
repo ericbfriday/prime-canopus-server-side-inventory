@@ -25,6 +25,7 @@ function addInventory() {
         data: objectToSend, // data hold value we want to send
         success: function(serverResp) {
             console.log(serverResp);
+            getInventory();
         }
     });
 }
@@ -36,6 +37,7 @@ function getInventory() {
         type: 'GET',
         url: '/inventory',
         success: function(serverResp) {
+            $('#inventory').empty();
             console.log('inventory resp ->', serverResp);
             for (var i = 0; i < serverResp.length; i++) {
                 $('#inventory').append('<p>'+ serverResp[i] +'</p>');
