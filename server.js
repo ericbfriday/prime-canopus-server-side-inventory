@@ -1,6 +1,9 @@
 var express = require('express');
-var path = require('path');
 var bodyParser = require('body-parser');
+
+// require routers
+var indexRouter = require('./routes/index');
+
 var app = express();
 
 // global inventory variable
@@ -13,12 +16,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // client.js, jquery, css
 app.use(express.static('public')); // public folder
 
-
-app.get('/', function(req, res) {
-    var indexPath = path.join(__dirname, './public/views/index.html');
-    console.log(indexPath);
-    res.sendFile(indexPath);
-});
+// Routes
+app.use('/', indexRouter);
 
 app.get('/inventory', function(req, res) {
      console.log('in get inventory route');
