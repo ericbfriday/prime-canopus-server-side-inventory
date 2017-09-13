@@ -32,10 +32,33 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-   var item = req.body.item;    
-   console.log('in post inventory route', item);
-   inventory.push(item);
-   res.sendStatus(201);
+   var clientItem = req.body.item;    
+   console.log('in post inventory route', clientItem);
+
+   pool.connect(function(connectionError, client, done) {
+    if(connectionError){
+        console.log(connectionError);
+        res.sendStatus(500);
+    } else {
+        // query string
+        // values to insert into the query string
+        // callback func that will run with query is complete
+
+        // parameterized queries
+        // https://node-postgres.com/features/queries
+        var queryString = 'INSERT INTO inventory (item) VALUES ($1);';
+        var values = [clientItem];
+        client.query( queryString, values , function(queryError, resultObj) {
+            done();
+            if(queryError){
+                console.log(connectionError);
+                res.sendStatus(500);
+            }else{
+                res.sendStatus(201);
+            }
+        });
+    }
+   });
 });
 
 module.exports = router;
