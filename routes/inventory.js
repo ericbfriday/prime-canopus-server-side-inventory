@@ -16,12 +16,17 @@ router.get('/', function(req, res) {
         } else {
             // ask the client to run our query
             // params 1. query itself, 2. is callback
-            client.query('SELECT * FROM inventory', function(queryError, resultObj) {
+            client.query('SELECT * FROM inventory;', function(queryError, resultObj) {
+                done();
+                // var resultObj
+                // queryError any error that happens in executing the query
+                // resultObj response object from db via pg contains the result set
                 if(queryError){
                     console.log(connectionError);
                     res.sendStatus(500);
                 }else{
-                    console.log('resultObj ->', resultObj);
+                    // resultObj.rows contains the result set as an array of objects
+                    console.log('resultObj.rows ->', resultObj.rows);
                     res.send(resultObj.rows);
                 }  
             });
