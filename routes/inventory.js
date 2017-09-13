@@ -1,9 +1,6 @@
 var router = require('express').Router();
 var pool = require('../modules/pool');
 
-// global inventory variable
-// var inventory = ['the ring', 'trousers', 'buttons', 'hairy feet'];
-
 router.get('/', function(req, res) {
     console.log('in get inventory route');
     pool.connect(function(connectionError, client, done) {
