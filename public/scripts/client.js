@@ -40,7 +40,8 @@ function getInventory() {
             $('#inventory').empty();
             console.log('inventory resp ->', serverResp);
             for (var i = 0; i < serverResp.length; i++) {
-                $('#inventory').append('<p>'+ serverResp[i] +'</p>');
+                console.log('serverResp[i]', serverResp[i]);
+                $('#inventory').append('<p>'+ serverResp[i].item +'</p>');
             }
         }
     });
