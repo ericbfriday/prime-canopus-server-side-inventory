@@ -39,9 +39,21 @@ function getInventory() {
         success: function(serverResp) {
             $('#inventory').empty();
             console.log('inventory resp ->', serverResp);
+            // for each item
             for (var i = 0; i < serverResp.length; i++) {
                 console.log('serverResp[i]', serverResp[i]);
-                $('#inventory').append('<p>'+ serverResp[i].item +'</p>');
+
+                // include data-id on the item Div
+                var $itemDiv = $('<div>', {text: serverResp[i].item}).data('id', serverResp[i].id);
+                
+                // include a button with the class deleteMe
+                var $delBtn = $('<input>', {type: 'button', class: 'deleteMe', value:'Delete'});
+
+                $itemDiv.append($delBtn);
+                $('#inventory').append($itemDiv);
+
+                // console.log('data-id ->', $itemDiv.data('id'));
+                
             }
         }
     });
