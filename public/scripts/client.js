@@ -3,6 +3,10 @@ console.log('js');
 function onReady() {
   console.log('ready!');
   $('#addInventory').on('click', addInventory);
+  
+  // 3 params for things that are not yet on the dom
+  // event, class to watch for, function to run
+  $('#inventory').on('click', '.deleteMe', deleteInventory);
   // on ready get all inventory
   getInventory();
 };
@@ -57,6 +61,10 @@ function getInventory() {
             }
         }
     });
+}
+
+function deleteInventory() {
+    console.log('in deleteInventory');
 }
 
 $(document).ready(onReady);
