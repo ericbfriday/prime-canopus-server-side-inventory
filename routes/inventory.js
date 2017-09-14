@@ -64,9 +64,21 @@ router.post('/', function(req, res) {
 // route params
 router.delete('/:id', function(req, res) {
     console.log('in delete inventory route');
-    console.log('req.params ->', req.params);
     console.log('req.params.id ->', req.params.id);
-    res.sendStatus(200);
+    var dbId = req.params.id;
+
+    // pool.connect
+
+    // error handling for the connection
+
+    // client.query
+    // test in postico
+    // DELETE * FROM inventory WHERE id=$1, [dbId]
+
+    // error handling for the query
+    // if successful respond with a 200 level status code
+
+    res.sendStatus(200); // 202 - Accepted 204 - No Content
 });
 
 module.exports = router;
