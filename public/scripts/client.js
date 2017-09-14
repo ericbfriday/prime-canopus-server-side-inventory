@@ -54,17 +54,23 @@ function getInventory() {
                 var $delBtn = $('<input>', {type: 'button', class: 'deleteMe', value:'Delete'});
 
                 $itemDiv.append($delBtn);
-                $('#inventory').append($itemDiv);
-
-                // console.log('data-id ->', $itemDiv.data('id'));
-                
+                $('#inventory').append($itemDiv);                
             }
         }
     });
 }
 
 function deleteInventory() {
-    console.log('in deleteInventory');
+    var thisId = $(this).parent().data('id');
+    console.log('in deleteInventory', thisId);
+
+    $.ajax({
+        method: 'DELETE',
+        url: '/inventory/' + thisId,
+        success: function(resp) {
+            console.log('server response is', resp);            
+        }
+    });
 }
 
 $(document).ready(onReady);
