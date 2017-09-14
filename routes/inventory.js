@@ -61,5 +61,13 @@ router.post('/', function(req, res) {
    });
 });
 
+// route params
+router.delete('/:id', function(req, res) {
+    console.log('in delete inventory route');
+    console.log('req.params ->', req.params);
+    console.log('req.params.id ->', req.params.id);
+    res.sendStatus(200);
+});
+
 module.exports = router;
 
