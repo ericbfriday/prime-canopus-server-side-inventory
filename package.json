@@ -11,7 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4"
-  }
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "pg": "^7.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrimeAcademy/canopus-server-side-inventory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PrimeAcademy/canopus-server-side-inventory/issues"
+  },
+  "homepage": "https://github.com/PrimeAcademy/canopus-server-side-inventory#readme"
 }
