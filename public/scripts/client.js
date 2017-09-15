@@ -3,6 +3,10 @@ console.log('js');
 function onReady() {
   console.log('ready!');
   $('#addInventory').on('click', addInventory);
+  
+  // 3 params for things that are not yet on the dom
+  // event, class to watch for, function to run
+  $('#inventory').on('click', '.deleteMe', deleteInventory);
   // on ready get all inventory
   getInventory();
 };
@@ -39,9 +43,33 @@ function getInventory() {
         success: function(serverResp) {
             $('#inventory').empty();
             console.log('inventory resp ->', serverResp);
+            // for each item
             for (var i = 0; i < serverResp.length; i++) {
-                $('#inventory').append('<p>'+ serverResp[i] +'</p>');
+                console.log('serverResp[i]', serverResp[i]);
+
+                // include data-id on the item Div
+                var $itemDiv = $('<div>', {text: serverResp[i].item}).data('id', serverResp[i].id);
+                
+                // include a button with the class deleteMe
+                var $delBtn = $('<input>', {type: 'button', class: 'deleteMe', value:'Delete'});
+
+                $itemDiv.append($delBtn);
+                $('#inventory').append($itemDiv);                
             }
+        }
+    });
+}
+
+function deleteInventory() {
+    var thisId = $(this).parent().data('id');
+    console.log('in deleteInventory', thisId);
+
+    $.ajax({
+        method: 'DELETE',
+        url: '/inventory/' + thisId,
+        success: function(resp) {
+            console.log('server response is', resp); 
+            getInventory();           
         }
     });
 }
